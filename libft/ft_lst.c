@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:35:39 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/02 13:01:47 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/20 17:56:08 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,32 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (count);
 }
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!(new && lst))
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	new->next = *lst;
+	*lst = new;
+}
+
+// void	ft_lstdelone(t_list *lst)
+// {
+// 	if (!lst)
+// 		return ;
+// 	free(lst->content);
+// 	free(lst);
+// 	lst = NULL;
+// }
+
+// void del(void *countent)
+// {
+// 	(void) countent;
+// 	//free(countent);
+// 	return ;
+// }

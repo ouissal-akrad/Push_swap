@@ -6,16 +6,15 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:49:07 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/02 12:53:23 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/20 17:50:21 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-# include <limits.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 typedef struct s_list
 {
@@ -36,4 +35,5 @@ long				ft_atoi(char *str);
 t_list				*ft_lstnew(int content);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
-
+void				ft_lstadd_front(t_list **lst, t_list *new);
+void				ft_lstdelone(t_list *lst);

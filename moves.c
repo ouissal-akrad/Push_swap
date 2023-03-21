@@ -6,68 +6,60 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:42:48 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/16 19:22:13 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/21 15:27:08 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*swap(t_list *head)
+void	push(t_list **src, t_list **dest)
 {
 	t_list	*tmp;
 
-	if (head == NULL || head->next == NULL)
-		return (head);
-	tmp = head->next;
-	head->next = tmp->next;
-	tmp->next = head;
-	head = tmp;
-	write(1, "sa\n", 3);
-	return (head);
+	if (!(*src))
+		return ;
+	tmp = (*src);
+	ft_lstadd_front(dest, ft_lstnew((*src)->content));
+	(*src) = (*src)->next;
+	free(tmp);
 }
-t_list *push(t_list *head)
-{
-	t_list *tmp;
 
-	tmp = head;
-	if(head == NULL || head->next == NULL)
-		return (head);
-	while ()
-	{
-		/* code */
-	}
-	
+void	swap(t_list **head)
+{
+	t_list	*tmp;
+
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	tmp = (*head)->next;
+	(*head)->next = tmp->next;
+	tmp->next = *head;
+	*head = tmp;
 }
-t_list	*rotate(t_list *head)
+
+void	rotate(t_list **head)
 {
 	t_list	*last;
 
-	last = head;
-	if (head == NULL || head->next == NULL)
-		return (head);
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	last = *head;
 	while (last->next)
 		last = last->next;
-	last->next = head;
-	head = head->next;
+	last->next = *head;
+	*head = (*head)->next;
 	last->next->next = NULL;
-	write(1, "ra\n", 3);
-	return (head);
 }
 
-t_list	*rev_rotate(t_list *head)
+void	rev_rotate(t_list **head)
 {
-	t_list	*last;
+	t_list	*tmp;
 
-	last = head;
-	if (head == NULL || head->next == NULL)
-		return (head);
-	while (last->next)
-		last = last->next;
-	last->next = head;
-	head = last;
-	while (head->next != last)
-		head = head->next;
-	head->next = NULL;
-	write(1, "rra\n", 4);
-	return (last);
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	tmp = *head;
+	while (tmp->next->next != NULL)
+		tmp = tmp->next;
+	tmp->next->next = *head;
+	*head = tmp->next;
+	tmp->next = NULL;
 }

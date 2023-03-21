@@ -7,6 +7,8 @@ SRC = 	parsing.c\
 		moves.c\
 		three_nbr.c\
 		five_nbr.c\
+		do_a.c\
+		do_b.c\
 
 LIBFT = libft/libft.a
 

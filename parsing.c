@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:34 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/15 12:47:42 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/21 12:33:04 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_list	*stack_a(char **args)
 	int		i;
 	t_list	*head;
 	t_list	*new;
-
+	// t_list	*stack_b = NULL;
 	i = 0;
 	if (count_args(args) == 0)
 		return (NULL);
@@ -78,10 +78,10 @@ t_list	*stack_a(char **args)
 		ft_lstadd_back(&head, new);
 	}
 	if (count_args(args) == 3)
-		head = sort_three(head);
+		sort_three(&head);
 	if (count_args(args) == 5)
-		head = sort_five(head);
-	print_stack(head);
+		find_smallest(&head);
+	// print_stack(head);
 	return (head);
 }
 
@@ -90,6 +90,7 @@ int	main(int ac, char *av[])
 	int		i;
 	int		j;
 	char	**args;
+	// t_list	*stack_b;
 
 	// atexit(t);
 	args = valid(ac, av);
@@ -110,5 +111,6 @@ int	main(int ac, char *av[])
 	}
 	if (stack_a(args) == NULL)
 		exit(0);
+	// print_stack((*head));
 	return (0);
 }

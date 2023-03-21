@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:16:45 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/16 12:35:20 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/21 15:28:49 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,27 @@
 # include <string.h>
 # include <unistd.h>
 
-/*------------Libft------------*/
-
+/*------------parsing-----------*/
 void	ftt_error(void);
 int		count_args(char *av[]);
 t_list	*stack_a(char **args);
-t_list	*swap(t_list *head);
-t_list	*rotate(t_list *head);
-t_list	*rev_rotate(t_list *head);
-t_list	*push(t_list *head);
-t_list	*sort_three(t_list *head);
-t_list	*sort_five(t_list *head);
 void	print_stack(t_list *head);
+/*------------moves-------------*/
+void	swap(t_list **head);
+void	rotate(t_list **head);
+void	rev_rotate(t_list **head);
+void	push(t_list **src, t_list **dest);
+/*-----------three/five----------*/
+void	sort_three(t_list **head);
+void	find_smallest(t_list **stack_a);
+void	helper(t_list **head,int first,int second,t_list **stack_b);
+/*--------------do--------------*/
+void	do_pa(t_list **head, t_list **stack_b);
+void	do_pb(t_list **head, t_list **stack_b);
+void	do_sa(t_list **head);
+void	do_sb(t_list **head);
+void	do_ra(t_list **head);
+void	do_rb(t_list **head);
+void	do_rra(t_list **head);
+void	do_rrb(t_list **head);
 #endif
