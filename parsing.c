@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:34 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/23 22:43:26 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/24 01:01:57 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ char	**valid(int j, char **av)
 void	go(t_list *stack_a)
 {
 	if (ft_lstsize(stack_a) == 3)
-		sort_three(&stack_a);
-	if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4 || ft_lstsize(stack_a) == 100 )
+		three(&stack_a);
+	if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
 		find_smallest(&stack_a);
 }
 

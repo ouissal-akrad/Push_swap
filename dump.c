@@ -1,46 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five_nbr.c                                         :+:      :+:    :+:   */
+/*   three_nbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 16:37:21 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/24 00:53:24 by ouakrad          ###   ########.fr       */
+/*   Created: 2023/03/13 12:27:16 by ouakrad           #+#    #+#             */
+/*   Updated: 2023/03/24 01:01:38 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	find_smallest(t_list **stack_a)
+void	three(t_list **head)
 {
-	t_list	**stack_b;
-	int		first;
-	int		second;
-	int		data;
-	t_list	*tmp;
+	int	a;
+	int	b;
+	int	c;
 
-	tmp = (*stack_a);
-	stack_b = malloc(sizeof(t_list *));
-	*stack_b = NULL;
-	first = INT_MAX;
-	second = INT_MAX;
-	while (tmp != NULL)
+	a = (*head)->content;
+	b = (*head)->next->content;
+	c = (*head)->next->next->content;
+	if (a < b && b < c)
+		return ;
+	if (a > b && b < c && c > a) //case 1
+		do_sa(head);
+	else if (a > b && b < c && c < a) //cae 3
+		do_ra(head);
+	else if (a > b && b > c) //case 2
 	{
-		data = tmp->content;
-		if (data < first)
-		{
-			second = first;
-			first = data;
-		}
-		else if (data < second && data != first)
-			second = data;
-		tmp = tmp->next;
+		do_sa(head);
+		do_rra(head);
 	}
-	if(ft_lstsize(*stack_a) == 5)
-		five(stack_a, first, second, stack_b);
-	if(ft_lstsize(*stack_a) == 4)
-		four(stack_a, first, stack_b);
+	else if (a < b && b > a && c < a) //case 5
+		do_rra(head);
+	else //case 4
+	{
+		do_sa(head);
+		do_ra(head);
+	}
 }
 
 void four(t_list **stack_a, int first, t_list **stack_b)
@@ -56,7 +54,7 @@ void four(t_list **stack_a, int first, t_list **stack_b)
 			do_rra(stack_a);
 		tmp = (*stack_a);
 	}
-	sort_three(stack_a);
+	three(stack_a);
 	do_pa(stack_a, stack_b);
 	print_stack(*stack_a);
 }
@@ -76,7 +74,7 @@ void	five(t_list **stack_a, int first, int second, t_list **stack_b)
 			do_rra(stack_a);
 		tmp = (*stack_a);
 	}
-	sort_three(stack_a);
+	three(stack_a);
 	if ((*stack_b)->content < (*stack_b)->next->content)
 		do_sb(stack_b);
 	do_pa(stack_a, stack_b);

@@ -5,8 +5,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC = 	parsing.c\
 		moves.c\
-		three_nbr.c\
-		five_nbr.c\
+		dump.c\
+		helper.c\
 		do_a.c\
 		do_b.c\
 
