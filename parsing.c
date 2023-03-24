@@ -6,11 +6,21 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:34 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/21 12:33:04 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/23 22:43:26 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_leaks(char **args)
+{
+	int	i;
+
+	i = 0;
+	while (args[i])
+		free(args[i++]);
+	free(args);
+}
 
 void	print_stack(t_list *head)
 {
@@ -57,32 +67,32 @@ char	**valid(int j, char **av)
 	free(new_arg);
 	return (args);
 }
-// void t()
-// {
-// 	system("leaks push_swap");
-// }
+
+void	go(t_list *stack_a)
+{
+	if (ft_lstsize(stack_a) == 3)
+		sort_three(&stack_a);
+	if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4 || ft_lstsize(stack_a) == 100 )
+		find_smallest(&stack_a);
+}
 
 t_list	*stack_a(char **args)
 {
 	int		i;
-	t_list	*head;
+	t_list	*stack_a;
 	t_list	*new;
-	// t_list	*stack_b = NULL;
+
 	i = 0;
 	if (count_args(args) == 0)
 		return (NULL);
-	head = ft_lstnew(ft_atoi(args[i]));
+	stack_a = ft_lstnew(ft_atoi(args[i]));
 	while (args[++i] != NULL)
 	{
 		new = ft_lstnew(ft_atoi(args[i]));
-		ft_lstadd_back(&head, new);
+		ft_lstadd_back(&stack_a, new);
 	}
-	if (count_args(args) == 3)
-		sort_three(&head);
-	if (count_args(args) == 5)
-		find_smallest(&head);
-	// print_stack(head);
-	return (head);
+	go(stack_a);
+	return (stack_a);
 }
 
 int	main(int ac, char *av[])
@@ -90,9 +100,7 @@ int	main(int ac, char *av[])
 	int		i;
 	int		j;
 	char	**args;
-	// t_list	*stack_b;
 
-	// atexit(t);
 	args = valid(ac, av);
 	i = 0;
 	j = 0;
@@ -111,6 +119,5 @@ int	main(int ac, char *av[])
 	}
 	if (stack_a(args) == NULL)
 		exit(0);
-	// print_stack((*head));
 	return (0);
 }

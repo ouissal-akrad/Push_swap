@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:16:45 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/21 15:28:49 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/23 22:21:03 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ftt_error(void);
 int		count_args(char *av[]);
 t_list	*stack_a(char **args);
 void	print_stack(t_list *head);
+void	free_leaks(char **args);
 /*------------moves-------------*/
 void	swap(t_list **head);
 void	rotate(t_list **head);
@@ -33,7 +34,8 @@ void	push(t_list **src, t_list **dest);
 /*-----------three/five----------*/
 void	sort_three(t_list **head);
 void	find_smallest(t_list **stack_a);
-void	helper(t_list **head,int first,int second,t_list **stack_b);
+void	five(t_list **head, int first, int second, t_list **stack_b);
+void four(t_list **stack_a, int first, int second, t_list **stack_b);
 /*--------------do--------------*/
 void	do_pa(t_list **head, t_list **stack_b);
 void	do_pb(t_list **head, t_list **stack_b);
