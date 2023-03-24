@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:37:21 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/23 22:53:25 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/24 00:53:24 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,34 +37,26 @@ void	find_smallest(t_list **stack_a)
 			second = data;
 		tmp = tmp->next;
 	}
-	if(ft_lstsize(*stack_a) == 100)
-		four(stack_a, first, second, stack_b);
 	if(ft_lstsize(*stack_a) == 5)
 		five(stack_a, first, second, stack_b);
 	if(ft_lstsize(*stack_a) == 4)
-		four(stack_a, first, second, stack_b);
+		four(stack_a, first, stack_b);
 }
 
-void four(t_list **stack_a, int first, int second, t_list **stack_b)
+void four(t_list **stack_a, int first, t_list **stack_b)
 {
 	t_list	*tmp;
 
 	tmp = (*stack_a);
-	while (ft_lstsize(tmp) != 2)
+	while (ft_lstsize(tmp) != 3)
 	{
 		if (tmp->content == first)
-			do_pb(stack_a, stack_b);
-		else if (tmp->content == second)
 			do_pb(stack_a, stack_b);
 		else
 			do_rra(stack_a);
 		tmp = (*stack_a);
 	}
-	if ((*stack_a)->content > (*stack_a)->next->content)
-		do_sa(stack_a);
-	if ((*stack_b)->content < (*stack_b)->next->content)
-		do_sb(stack_b);
-	do_pa(stack_a, stack_b);
+	sort_three(stack_a);
 	do_pa(stack_a, stack_b);
 	print_stack(*stack_a);
 }
