@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   three_nbr.c                                        :+:      :+:    :+:   */
+/*   dump.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:27:16 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/24 01:01:38 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/24 01:11:40 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	three(t_list **head)
 	}
 }
 
-void four(t_list **stack_a, int first, t_list **stack_b)
+void	four(t_list **stack_a, int first, t_list **stack_b)
 {
 	t_list	*tmp;
 
@@ -56,7 +56,6 @@ void four(t_list **stack_a, int first, t_list **stack_b)
 	}
 	three(stack_a);
 	do_pa(stack_a, stack_b);
-	print_stack(*stack_a);
 }
 
 void	five(t_list **stack_a, int first, int second, t_list **stack_b)

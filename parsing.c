@@ -6,35 +6,37 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:34 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/24 01:01:57 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/24 01:14:12 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_leaks(char **args)
+void	go(t_list *stack_a)
 {
-	int	i;
+	if (ft_lstsize(stack_a) == 3)
+		three(&stack_a);
+	if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
+		find_smallest(&stack_a);
+}
+
+t_list	*stack_a(char **args)
+{
+	int		i;
+	t_list	*stack_a;
+	t_list	*new;
 
 	i = 0;
-	while (args[i])
-		free(args[i++]);
-	free(args);
-}
-
-void	print_stack(t_list *head)
-{
-	while (head != NULL)
+	if (count_args(args) == 0)
+		return (NULL);
+	stack_a = ft_lstnew(ft_atoi(args[i]));
+	while (args[++i] != NULL)
 	{
-		printf("%d\n", head->content);
-		head = head->next;
+		new = ft_lstnew(ft_atoi(args[i]));
+		ft_lstadd_back(&stack_a, new);
 	}
-}
-
-void	ftt_error(void)
-{
-	write(2, "Error\n", 7);
-	exit(1);
+	go(stack_a);
+	return (stack_a);
 }
 
 int	count_args(char *av[])
@@ -66,33 +68,6 @@ char	**valid(int j, char **av)
 	args = ft_split(new_arg, ' ');
 	free(new_arg);
 	return (args);
-}
-
-void	go(t_list *stack_a)
-{
-	if (ft_lstsize(stack_a) == 3)
-		three(&stack_a);
-	if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
-		find_smallest(&stack_a);
-}
-
-t_list	*stack_a(char **args)
-{
-	int		i;
-	t_list	*stack_a;
-	t_list	*new;
-
-	i = 0;
-	if (count_args(args) == 0)
-		return (NULL);
-	stack_a = ft_lstnew(ft_atoi(args[i]));
-	while (args[++i] != NULL)
-	{
-		new = ft_lstnew(ft_atoi(args[i]));
-		ft_lstadd_back(&stack_a, new);
-	}
-	go(stack_a);
-	return (stack_a);
 }
 
 int	main(int ac, char *av[])
