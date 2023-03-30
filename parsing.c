@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:34 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/24 01:14:12 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/30 02:57:01 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,21 @@
 
 void	go(t_list *stack_a)
 {
-	if (ft_lstsize(stack_a) == 3)
+	int	j;
+
+	j = 42;
+	if (ft_lstsize(stack_a) == 2 && stack_a->content > stack_a->next->content)
+		do_sa(&stack_a);
+	else if (ft_lstsize(stack_a) == 3)
 		three(&stack_a);
-	if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
+	else if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
 		find_smallest(&stack_a);
+	else
+	{
+		if (ft_lstsize(stack_a) <= 300)
+			j = 13;
+		step_2(stack_a, j);
+	}
 }
 
 t_list	*stack_a(char **args)
@@ -80,14 +91,17 @@ int	main(int ac, char *av[])
 	i = 0;
 	j = 0;
 	if (count_args(args) == 1)
+	{
 		ft_atoi(args[i]);
+		exit(0);
+	}
 	while (args[i] != NULL)
 	{
 		j = i + 1;
 		while (args[j])
 		{
 			if (ft_atoi(args[i]) == ft_atoi(args[j]))
-				ftt_error();
+				ft_error();
 			j++;
 		}
 		i++;

@@ -7,6 +7,7 @@ SRC = 	parsing.c\
 		moves.c\
 		dump.c\
 		helper.c\
+		sorting.c\
 		do_a.c\
 		do_b.c\
 

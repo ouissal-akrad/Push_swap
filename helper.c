@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 01:00:06 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/24 01:12:45 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/30 02:57:39 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,9 @@ void	print_stack(t_list *head)
 {
 	while (head != NULL)
 	{
-		printf("%d\n", head->content);
+		printf("content : %d\n", head->content);
 		head = head->next;
 	}
-}
-
-void	ftt_error(void)
-{
-	write(2, "Error\n", 7);
-	exit(1);
 }
 
 void	find_smallest(t_list **stack_a)

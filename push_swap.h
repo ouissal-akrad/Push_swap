@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:16:45 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/24 01:10:46 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/30 02:57:33 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,16 @@
 # include <unistd.h>
 
 /*------------parsing-----------*/
-void	ftt_error(void);
 int		count_args(char *av[]);
 t_list	*stack_a(char **args);
 void	print_stack(t_list *head);
 void	free_leaks(char **args);
+/*-----------Sorting-----------*/
+void	indexing(t_list *stack_a);
+void	step_2(t_list *stack_a, int j);
+void	step_3(t_list *stack_a, t_list *stack_b);
+void	position(t_list *head);
+t_list	*get_max(t_list *head);
 /*------------moves-------------*/
 void	swap(t_list **head);
 void	rotate(t_list **head);

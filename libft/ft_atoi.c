@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:31:10 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/10 13:21:10 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/30 02:40:44 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ long	ft_atoi(char *str)
 	value = 0;
 	while (str[i] == 32)
 		i++;
-	if(!str[i])
+	if (!str[i])
 		ft_error();
 	if (str[i] == '-')
 	{
@@ -43,8 +43,8 @@ long	ft_atoi(char *str)
 	while (str[i] && ft_isdigit(str[i]))
 	{
 		value = value * 10 + str[i++] - '0';
-		if ((value > 2147483647 && sign == 1) || (value > 2147483648 && sign ==
-				-1))
+		if ((value > 2147483647 && sign == 1) || (value > 2147483648 && sign
+				== -1))
 			ft_error();
 	}
 	if (str[i])
