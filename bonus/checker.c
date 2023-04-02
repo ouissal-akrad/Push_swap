@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 21:44:05 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/02 01:30:44 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/02 02:05:45 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ void	check(t_list *stack_a, t_list *stack_b)
 			rr(&stack_a, &stack_b);
 		else if (ft_strcmp(line, "rrr\n") == 0)
 			rrr(&stack_a, &stack_b);
-		else
-			result(stack_a, stack_b);
 		line = get_next_line(0);
 	}
+	result(stack_a, stack_b);
 }
