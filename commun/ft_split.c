@@ -6,11 +6,11 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:33:55 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/02 13:01:49 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/01 00:41:43 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "commun.h"
 
 static int	count_word(char *s, char c)
 {

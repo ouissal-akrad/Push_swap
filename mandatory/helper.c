@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 01:00:06 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/30 02:57:39 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/31 23:05:16 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,23 @@ void	free_leaks(char **args)
 	int	i;
 
 	i = 0;
-	while (args[i])
+	while (args)
 		free(args[i++]);
 	free(args);
+}
+
+int	is_sorted(t_list *stack_a)
+{
+	t_list	*tmp;
+
+	tmp = stack_a;
+	while (tmp && tmp->next)
+	{
+		if (tmp->content > tmp->next->content)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }
 
 void	print_stack(t_list *head)
@@ -31,17 +45,14 @@ void	print_stack(t_list *head)
 	}
 }
 
-void	find_smallest(t_list **stack_a)
+void	find_smallest(t_list **stack_a, t_list **stack_b)
 {
-	t_list	**stack_b;
 	int		first;
 	int		second;
 	int		data;
 	t_list	*tmp;
 
 	tmp = (*stack_a);
-	stack_b = malloc(sizeof(t_list *));
-	*stack_b = NULL;
 	first = INT_MAX;
 	second = INT_MAX;
 	while (tmp != NULL)

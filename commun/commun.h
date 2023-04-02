@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   commun.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:49:07 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/30 02:56:37 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/01 01:38:54 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef COMMUN_H
+# define COMMUN_H
 
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-
+/*---------------------------libft-----------------------------*/
 typedef struct s_list
 {
 	int				content;
@@ -33,11 +33,30 @@ char				**ft_split(char const *s, char c);
 char				*ft_strjoin(char const *s1, char const *s2);
 int					ft_strcmp(char *s1, char *s2);
 char				*ft_strdup(char *str);
-size_t				ft_strlen(const char *str);
+int					ft_strlen(const char *str);
 long				ft_atoi(char *str);
 t_list				*ft_lstnew(int content);
-void				ft_lstadd_back(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
 void				ft_lstadd_front(t_list **lst, t_list *new);
+void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_error(void);
+
+/*----------------------------gnl--------------------------------*/
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+size_t		ft_strlengh(char *result);
+void		ft_join(char *str, char *result, char *buffer);
+char		*ft_strjn(char *result, char *buffer);
+char		*ft_strchr(const char *str, int c);
+char		*change_result(char *result);
+char		*ft_get_line(char *str);
+char		*ft_get_txt(char *str, int fd);
+char		*get_next_line(int fd);
 #endif

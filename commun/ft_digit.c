@@ -6,16 +6,41 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:31:10 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/30 02:40:44 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/01 01:10:55 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "commun.h"
 
 void	ft_error(void)
 {
 	write(2, "Error\n", 7);
 	exit(1);
+}
+
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0') && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}
+
+int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 long	ft_atoi(char *str)

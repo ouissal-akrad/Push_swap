@@ -6,14 +6,14 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:16:45 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/30 02:57:33 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/01 01:16:52 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "../commun/commun.h"
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -25,7 +25,8 @@ int		count_args(char *av[]);
 t_list	*stack_a(char **args);
 void	print_stack(t_list *head);
 void	free_leaks(char **args);
-/*-----------Sorting-----------*/
+int		is_sorted(t_list *stack_a);
+/*-----------sorting-----------*/
 void	indexing(t_list *stack_a);
 void	step_2(t_list *stack_a, int j);
 void	step_3(t_list *stack_a, t_list *stack_b);
@@ -36,9 +37,12 @@ void	swap(t_list **head);
 void	rotate(t_list **head);
 void	rev_rotate(t_list **head);
 void	push(t_list **src, t_list **dest);
-/*-----------three/five----------*/
+void	rr(t_list **stack_a, t_list **stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
+void	ss(t_list **stack_a, t_list **stack_b);
+/*-----------dump----------*/
 void	three(t_list **head);
-void	find_smallest(t_list **stack_a);
+void	find_smallest(t_list **stack_a, t_list **stack_b);
 void	f_v(t_list **stack_a, int first, int second, t_list **stack_b);
 void	five(t_list **head, int first, int second, t_list **stack_b);
 void	four(t_list **stack_a, int first, t_list **stack_b);

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:34 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/30 02:57:01 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/03/31 22:43:36 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,23 @@
 
 void	go(t_list *stack_a)
 {
-	int	j;
+	int		j;
+	t_list	*stack_b;
 
+	stack_b = malloc(sizeof(t_list));
 	j = 42;
+	if(is_sorted(stack_a))
+		exit(0);
 	if (ft_lstsize(stack_a) == 2 && stack_a->content > stack_a->next->content)
 		do_sa(&stack_a);
 	else if (ft_lstsize(stack_a) == 3)
 		three(&stack_a);
 	else if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
-		find_smallest(&stack_a);
+		find_smallest(&stack_a,&stack_b);
 	else
 	{
 		if (ft_lstsize(stack_a) <= 300)
-			j = 13;
+			j = 15;
 		step_2(stack_a, j);
 	}
 }
@@ -110,3 +114,5 @@ int	main(int ac, char *av[])
 		exit(0);
 	return (0);
 }
+
+
