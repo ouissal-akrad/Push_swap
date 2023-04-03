@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:04:28 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/01 01:25:00 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/02 21:41:57 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_list	*stack_a(char **args);
 void	print_stack(t_list *head);
 void	free_leaks(char **args);
 int		is_sorted(t_list *stack_a);
+char	*ft_strtrim(char const *s1, char const *set);
 /*-----------checker-----------*/
 void	result(t_list *stack_a, t_list *stack_b);
 void	check(t_list *stack_a, t_list *stack_b);

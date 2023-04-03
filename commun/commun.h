@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:49:07 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/01 01:38:54 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/02 02:12:20 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <fcntl.h>
 # include <unistd.h>
 /*---------------------------libft-----------------------------*/
 typedef struct s_list
@@ -46,17 +47,12 @@ void				ft_error(void);
 #  define BUFFER_SIZE 42
 # endif
 
-# include <fcntl.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-size_t		ft_strlengh(char *result);
-void		ft_join(char *str, char *result, char *buffer);
-char		*ft_strjn(char *result, char *buffer);
-char		*ft_strchr(const char *str, int c);
-char		*change_result(char *result);
-char		*ft_get_line(char *str);
-char		*ft_get_txt(char *str, int fd);
-char		*get_next_line(int fd);
+size_t				ft_strlengh(char *result);
+void				ft_join(char *str, char *result, char *buffer);
+char				*ft_strjn(char *result, char *buffer);
+char				*ft_strchr(const char *str, int c);
+char				*change_result(char *result);
+char				*ft_get_line(char *str);
+char				*ft_get_txt(char *str, int fd);
+char				*get_next_line(int fd);
 #endif

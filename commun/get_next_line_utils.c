@@ -45,7 +45,8 @@ char	*ft_strjn(char *result, char *buffer)
 {
 	char	*str;
 
-	str = malloc(sizeof(char) * ((ft_strlengh(result) + ft_strlengh(buffer)) + 1));
+	str = malloc(sizeof(char) * ((ft_strlengh(result)
+					+ ft_strlengh(buffer)) + 1));
 	if (!str)
 		return (free(result), NULL);
 	if (!result)

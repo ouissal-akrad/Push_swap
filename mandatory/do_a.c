@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 13:49:40 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/30 22:14:09 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/02 02:11:08 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ void	do_rra(t_list **stack_a)
 	rev_rotate(stack_a);
 	write(1, "rra\n", 4);
 }
-

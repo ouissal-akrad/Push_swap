@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:34 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/03/31 22:43:36 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/03 01:52:44 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	go(t_list *stack_a)
 	int		j;
 	t_list	*stack_b;
 
-	stack_b = malloc(sizeof(t_list));
-	j = 42;
-	if(is_sorted(stack_a))
+	stack_b = NULL;
+	j = 32;
+	if (is_sorted(stack_a))
 		exit(0);
 	if (ft_lstsize(stack_a) == 2 && stack_a->content > stack_a->next->content)
 		do_sa(&stack_a);
 	else if (ft_lstsize(stack_a) == 3)
 		three(&stack_a);
 	else if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
-		find_smallest(&stack_a,&stack_b);
+		find_smallest(&stack_a, &stack_b);
 	else
 	{
 		if (ft_lstsize(stack_a) <= 300)
@@ -112,7 +112,6 @@ int	main(int ac, char *av[])
 	}
 	if (stack_a(args) == NULL)
 		exit(0);
+	system ("leaks push_swap");
 	return (0);
 }
-
-

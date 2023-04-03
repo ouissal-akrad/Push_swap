@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 23:57:58 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/01 01:27:58 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/02 23:32:21 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	go(t_list *stack_a)
 {
 	t_list	*stack_b;
 
-	stack_b = malloc(sizeof(t_list));
-	check(stack_a,stack_b);
+	stack_b = NULL;
+	check(stack_a, stack_b);
 }
 
 t_list	*stack_a(char **args)
@@ -80,10 +80,7 @@ int	main(int ac, char *av[])
 	i = 0;
 	j = 0;
 	if (count_args(args) == 1)
-	{
 		ft_atoi(args[i]);
-		exit(0);
-	}
 	while (args[i] != NULL)
 	{
 		j = i + 1;
@@ -99,5 +96,3 @@ int	main(int ac, char *av[])
 		exit(0);
 	return (0);
 }
-
-

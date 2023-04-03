@@ -20,6 +20,7 @@ OBJ = $(SRC:.c=.o)
 SRC_BONUS = bonus/checker.c\
 			bonus/parsing_bonus.c\
 			bonus/moves_b.c\
+			bonus/ft_strtrim.c\
 			commun/ft_digit.c\
 			commun/ft_lst.c\
 			commun/ft_split.c\
@@ -52,11 +53,11 @@ $(NAME_BONUS): $(OBJ_BONUS)
 	$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJ_BONUS)
 
 clean:
-	$(RM) $(OBJ)
-	$(RM) $(OBJ_BONUS)
+	@$(RM) $(OBJ)
+	@$(RM) $(OBJ_BONUS)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 	@$(RM) $(NAME_BONUS)
 
 re: fclean all

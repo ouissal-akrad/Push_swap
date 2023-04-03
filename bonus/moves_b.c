@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 01:41:25 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/02 01:04:59 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/02 23:24:23 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,35 +64,20 @@ void	rev_rotate(t_list **head)
 	tmp->next = NULL;
 }
 
-void rr(t_list **stack_a,t_list **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	write(1,"rr\n",3);
 }
-void rrr(t_list **stack_a,t_list **stack_b)
+
+void	rrr(t_list **stack_a, t_list **stack_b)
 {
 	rev_rotate(stack_a);
 	rev_rotate(stack_b);
-	write(1,"rrr\n",4);
 }
-void ss(t_list **stack_a,t_list **stack_b)
+
+void	ss(t_list **stack_a, t_list **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
-	write(1,"ss\n",3);
-}
-
-int	is_sorted(t_list *stack_a)
-{
-	t_list	*tmp;
-
-	tmp = stack_a;
-	while (tmp && tmp->next)
-	{
-		if (tmp->content > tmp->next->content)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
 }
