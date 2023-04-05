@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:16:45 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/03 01:16:08 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/05 02:14:21 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,10 @@
 int		count_args(char *av[]);
 t_list	*stack_a(char **args);
 void	print_stack(t_list *head);
-void	free_leaks(char **args);
-void	free_list(t_list **list);
 int		is_sorted(t_list *stack_a);
 /*-----------sorting-----------*/
 void	indexing(t_list *stack_a);
-void	step_2(t_list *stack_a, int j);
+void	step_2(t_list *stack_a, t_list *stack_b, int j);
 void	step_3(t_list *stack_a, t_list *stack_b);
 void	position(t_list *head);
 t_list	*get_max(t_list *head);

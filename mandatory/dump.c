@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:27:16 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/03 01:16:21 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/05 01:56:20 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	three(t_list **head)
 		do_sa(head);
 		do_ra(head);
 	}
+	free_list(head);
 }
 
 void	four(t_list **stack_a, int first, t_list **stack_b)
@@ -56,6 +57,7 @@ void	four(t_list **stack_a, int first, t_list **stack_b)
 	}
 	three(stack_a);
 	do_pa(stack_a, stack_b);
+	free_list(stack_a);
 	free_list(stack_b);
 }
 
@@ -79,5 +81,6 @@ void	five(t_list **stack_a, int first, int second, t_list **stack_b)
 		do_sb(stack_b);
 	do_pa(stack_a, stack_b);
 	do_pa(stack_a, stack_b);
+	free_list(stack_a);
 	free_list(stack_b);
 }

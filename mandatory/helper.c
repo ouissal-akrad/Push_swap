@@ -6,33 +6,11 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 01:00:06 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/03 01:32:15 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/05 02:02:45 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	free_leaks(char **args)
-{
-	int	i;
-
-	i = 0;
-	while (args)
-		free(args[i++]);
-	free(args);
-}
-
-void	free_list(t_list **list)
-{
-	t_list	*tmp;
-
-	while (*list)
-	{
-		tmp = (*list)->next;
-		free(*list);
-		*list = tmp;
-	}
-}
 
 int	is_sorted(t_list *stack_a)
 {

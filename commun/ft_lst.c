@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:35:39 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/02 02:13:37 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/05 02:09:49 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,22 +89,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		pnt[j++] = s2[i_suf++];
 	pnt[j] = '\0';
 	return (pnt);
-}
-
-char	*ft_strdup(char *str)
-{
-	char	*ret;
-	int		i;
-
-	ret = malloc((ft_strlen(str) + 1));
-	if (!ret)
-		return (NULL);
-	i = 0;
-	while (str[i])
-	{
-		ret[i] = str[i];
-		i++;
-	}
-	ret[i] = '\0';
-	return (ret);
 }

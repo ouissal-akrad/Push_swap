@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 21:41:13 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/02 21:41:48 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/05 02:11:42 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 		str[i++] = s1[i_st++];
 	str[i] = '\0';
 	return (str);
+}
+
+void	rrr(t_list **stack_a, t_list **stack_b)
+{
+	rev_rotate(stack_a);
+	rev_rotate(stack_b);
+}
+
+void	ss(t_list **stack_a, t_list **stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 01:41:25 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/02 23:24:23 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/05 02:11:30 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,4 @@ void	rr(t_list **stack_a, t_list **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-}
-
-void	rrr(t_list **stack_a, t_list **stack_b)
-{
-	rev_rotate(stack_a);
-	rev_rotate(stack_b);
-}
-
-void	ss(t_list **stack_a, t_list **stack_b)
-{
-	swap(stack_a);
-	swap(stack_b);
 }

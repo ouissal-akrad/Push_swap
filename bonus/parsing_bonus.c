@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 23:57:58 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/02 23:32:21 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/05 02:12:07 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,14 @@ t_list	*stack_a(char **args)
 {
 	int		i;
 	t_list	*stack_a;
-	t_list	*new;
 
 	i = 0;
 	if (count_args(args) == 0)
 		return (NULL);
-	stack_a = ft_lstnew(ft_atoi(args[i]));
+	stack_a = ft_lstnew(ft_atoi(i, args));
 	while (args[++i] != NULL)
-	{
-		new = ft_lstnew(ft_atoi(args[i]));
-		ft_lstadd_back(&stack_a, new);
-	}
+		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(i, args)));
+	free_leaks(args);
 	go(stack_a);
 	return (stack_a);
 }
@@ -80,19 +77,25 @@ int	main(int ac, char *av[])
 	i = 0;
 	j = 0;
 	if (count_args(args) == 1)
-		ft_atoi(args[i]);
+		ft_atoi(i, args);
 	while (args[i] != NULL)
 	{
 		j = i + 1;
 		while (args[j])
 		{
-			if (ft_atoi(args[i]) == ft_atoi(args[j]))
+			if (ft_atoi(i, args) == ft_atoi(j, args))
+			{
+				free_leaks(args);
 				ft_error();
+			}
 			j++;
 		}
 		i++;
 	}
 	if (stack_a(args) == NULL)
+	{
+		free_leaks(args);
 		exit(0);
+	}
 	return (0);
 }

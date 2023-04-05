@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_digit.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:31:10 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/01 01:10:55 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/05 02:10:37 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "commun.h"
-
-void	ft_error(void)
-{
-	write(2, "Error\n", 7);
-	exit(1);
-}
 
 int	ft_isdigit(int c)
 {
@@ -43,7 +37,7 @@ int	ft_strlen(const char *str)
 	return (i);
 }
 
-long	ft_atoi(char *str)
+long	ft_atoi(int pos, char **args)
 {
 	int		i;
 	int		sign;
@@ -52,27 +46,39 @@ long	ft_atoi(char *str)
 	i = 0;
 	sign = 1;
 	value = 0;
-	while (str[i] == 32)
+	while (args[pos][i] == 32)
 		i++;
-	if (!str[i])
+	if (!args[pos][i])
+	{
+		free_leaks(args);
 		ft_error();
-	if (str[i] == '-')
+	}
+	if (args[pos][i] == '-')
 	{
 		sign = -1;
 		i++;
 	}
-	else if (str[i] == '+')
+	else if (args[pos][i] == '+')
 		i++;
-	if (!str[i])
-		ft_error();
-	while (str[i] && ft_isdigit(str[i]))
+	if (!args[pos][i])
 	{
-		value = value * 10 + str[i++] - '0';
+		free_leaks(args);
+		ft_error();
+	}
+	while (args[pos][i] && ft_isdigit(args[pos][i]))
+	{
+		value = value * 10 + args[pos][i++] - '0';
 		if ((value > 2147483647 && sign == 1) || (value > 2147483648 && sign
 				== -1))
+		{
+			free_leaks(args);
 			ft_error();
+		}
 	}
-	if (str[i])
+	if (args[pos][i])
+	{
+		free_leaks(args);
 		ft_error();
+	}
 	return (value * sign);
 }

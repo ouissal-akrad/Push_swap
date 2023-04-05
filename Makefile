@@ -11,6 +11,7 @@ SRC = 	mandatory/parsing.c\
 		mandatory/sorting.c\
 		mandatory/do_a.c\
 		mandatory/do_b.c\
+		commun/helper.c\
 		commun/ft_digit.c\
 		commun/ft_lst.c\
 		commun/ft_split.c\
@@ -20,8 +21,9 @@ OBJ = $(SRC:.c=.o)
 SRC_BONUS = bonus/checker.c\
 			bonus/parsing_bonus.c\
 			bonus/moves_b.c\
-			bonus/ft_strtrim.c\
+			bonus/helper.c\
 			commun/ft_digit.c\
+			commun/helper.c\
 			commun/ft_lst.c\
 			commun/ft_split.c\
 			commun/get_next_line.c\
@@ -33,14 +35,16 @@ INCLUDES = mandatory/push_swap.h
 
 INCLUDES_BONUS = bonus/push_swap_bonus.h
 
+INCLUDES_COMMUN = commun/commun.h
+
 all: $(NAME)
 
 bonus :$(NAME_BONUS)
 
-mandatory/%.o: Mandatory/%.c $(INCLUDES)
+mandatory/%.o: Mandatory/%.c $(INCLUDES) $(INCLUDES_COMMUN)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus/%.o: Bonus/%.c $(INCLUDES_BONUS)
+bonus/%.o: Bonus/%.c $(INCLUDES_BONUS) $(INCLUDES_COMMUN)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 %.o : %.c $(INCLUDES)

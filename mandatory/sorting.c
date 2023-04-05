@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 02:27:56 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/02 02:17:36 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/05 02:14:41 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,32 +67,29 @@ t_list	*get_max(t_list *head)
 	return (max);
 }
 
-void	step_2(t_list *stack_a, int j)
+void	step_2(t_list *stack_a, t_list *stack_b, int j)
 {
-	int		i;
-	t_list	**stack_b;
+	int	i;
 
-	stack_b = malloc(sizeof(t_list *));
-	*stack_b = NULL;
 	indexing(stack_a);
 	i = 0;
 	while (stack_a)
 	{
 		if ((stack_a)->index < i)
 		{
-			do_pb(&stack_a, stack_b);
+			do_pb(&stack_a, &stack_b);
 			i++;
 		}
 		else if ((stack_a)->index <= i + j)
 		{
-			do_pb(&stack_a, stack_b);
-			do_rb(stack_b);
+			do_pb(&stack_a, &stack_b);
+			do_rb(&stack_b);
 			i++;
 		}
 		else
 			do_ra(&stack_a);
 	}
-	step_3(stack_a, *stack_b);
+	step_3(stack_a, stack_b);
 }
 
 void	step_3(t_list *stack_a, t_list *stack_b)
@@ -118,4 +115,6 @@ void	step_3(t_list *stack_a, t_list *stack_b)
 			do_pa(&stack_a, &stack_b);
 		}
 	}
+	free_list(&stack_a);
+	free_list(&stack_b);
 }

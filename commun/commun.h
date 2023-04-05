@@ -6,18 +6,18 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:49:07 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/02 02:12:20 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/05 02:07:30 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COMMUN_H
 # define COMMUN_H
 
+# include <fcntl.h>
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-# include <fcntl.h>
 # include <unistd.h>
 /*---------------------------libft-----------------------------*/
 typedef struct s_list
@@ -29,18 +29,19 @@ typedef struct s_list
 }					t_list;
 
 int					ft_isdigit(int c);
-int					ft_isstringdigit(char *str);
 char				**ft_split(char const *s, char c);
 char				*ft_strjoin(char const *s1, char const *s2);
 int					ft_strcmp(char *s1, char *s2);
 char				*ft_strdup(char *str);
 int					ft_strlen(const char *str);
-long				ft_atoi(char *str);
+long				ft_atoi(int pos, char **args);
 t_list				*ft_lstnew(int content);
 int					ft_lstsize(t_list *lst);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_error(void);
+void				free_leaks(char **args);
+void				free_list(t_list **list);
 
 /*----------------------------gnl--------------------------------*/
 # ifndef BUFFER_SIZE

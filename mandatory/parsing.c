@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:34 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/03 01:52:44 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/05 02:14:11 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ void	go(t_list *stack_a)
 	if (is_sorted(stack_a))
 		exit(0);
 	if (ft_lstsize(stack_a) == 2 && stack_a->content > stack_a->next->content)
+	{
 		do_sa(&stack_a);
+		free_list(&stack_a);
+	}
 	else if (ft_lstsize(stack_a) == 3)
 		three(&stack_a);
 	else if (ft_lstsize(stack_a) == 5 || ft_lstsize(stack_a) == 4)
@@ -31,7 +34,7 @@ void	go(t_list *stack_a)
 	{
 		if (ft_lstsize(stack_a) <= 300)
 			j = 15;
-		step_2(stack_a, j);
+		step_2(stack_a, stack_b, j);
 	}
 }
 
@@ -39,17 +42,14 @@ t_list	*stack_a(char **args)
 {
 	int		i;
 	t_list	*stack_a;
-	t_list	*new;
 
 	i = 0;
 	if (count_args(args) == 0)
 		return (NULL);
-	stack_a = ft_lstnew(ft_atoi(args[i]));
+	stack_a = ft_lstnew(ft_atoi(i, args));
 	while (args[++i] != NULL)
-	{
-		new = ft_lstnew(ft_atoi(args[i]));
-		ft_lstadd_back(&stack_a, new);
-	}
+		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(i, args)));
+	free_leaks(args);
 	go(stack_a);
 	return (stack_a);
 }
@@ -96,7 +96,8 @@ int	main(int ac, char *av[])
 	j = 0;
 	if (count_args(args) == 1)
 	{
-		ft_atoi(args[i]);
+		ft_atoi(i, args);
+		free_leaks(args);
 		exit(0);
 	}
 	while (args[i] != NULL)
@@ -104,14 +105,19 @@ int	main(int ac, char *av[])
 		j = i + 1;
 		while (args[j])
 		{
-			if (ft_atoi(args[i]) == ft_atoi(args[j]))
+			if (ft_atoi(i, args) == ft_atoi(j, args))
+			{
+				free_leaks(args);
 				ft_error();
+			}
 			j++;
 		}
 		i++;
 	}
 	if (stack_a(args) == NULL)
+	{
+		free_leaks(args);
 		exit(0);
-	system ("leaks push_swap");
+	}
 	return (0);
 }
