@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:49:07 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/05 02:07:30 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/06 02:37:29 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ typedef struct s_list
 }					t_list;
 
 int					ft_isdigit(int c);
+int					ft_all_spaces(char *str);
 char				**ft_split(char const *s, char c);
 char				*ft_strjoin(char const *s1, char const *s2);
 int					ft_strcmp(char *s1, char *s2);
 char				*ft_strdup(char *str);
 int					ft_strlen(const char *str);
 long				ft_atoi(int pos, char **args);
+long				sequal(int pos, int i, char **args, int sign);
 t_list				*ft_lstnew(int content);
 int					ft_lstsize(t_list *lst);
 void				ft_lstadd_front(t_list **lst, t_list *new);

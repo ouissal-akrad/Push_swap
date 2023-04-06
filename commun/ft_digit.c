@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:31:10 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/05 02:10:37 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/06 00:34:41 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,36 @@ int	ft_strlen(const char *str)
 	return (i);
 }
 
+long	sequal(int pos, int i, char **args, int sign)
+{
+	long	value;
+
+	value = 0;
+	while (args[pos][i] && ft_isdigit(args[pos][i]))
+	{
+		value = value * 10 + args[pos][i++] - '0';
+		if ((value > 2147483647 && sign == 1) || (value > 2147483648 && sign
+				== -1))
+		{
+			free_leaks(args);
+			ft_error();
+		}
+	}
+	if (args[pos][i])
+	{
+		free_leaks(args);
+		ft_error();
+	}
+	return (value * sign);
+}
+
 long	ft_atoi(int pos, char **args)
 {
 	int		i;
 	int		sign;
-	long	value;
 
 	i = 0;
 	sign = 1;
-	value = 0;
 	while (args[pos][i] == 32)
 		i++;
 	if (!args[pos][i])
@@ -65,20 +86,5 @@ long	ft_atoi(int pos, char **args)
 		free_leaks(args);
 		ft_error();
 	}
-	while (args[pos][i] && ft_isdigit(args[pos][i]))
-	{
-		value = value * 10 + args[pos][i++] - '0';
-		if ((value > 2147483647 && sign == 1) || (value > 2147483648 && sign
-				== -1))
-		{
-			free_leaks(args);
-			ft_error();
-		}
-	}
-	if (args[pos][i])
-	{
-		free_leaks(args);
-		ft_error();
-	}
-	return (value * sign);
+	return (sequal(pos, i, args, sign));
 }

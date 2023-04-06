@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:16:45 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/05 02:14:21 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/06 02:11:30 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 /*------------parsing-----------*/
 int		count_args(char *av[]);
+void	check(char **args);
 t_list	*stack_a(char **args);
-void	print_stack(t_list *head);
 int		is_sorted(t_list *stack_a);
 /*-----------sorting-----------*/
 void	indexing(t_list *stack_a);

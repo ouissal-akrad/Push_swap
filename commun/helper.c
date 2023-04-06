@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 02:08:13 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/05 02:10:06 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/06 02:37:16 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,16 @@ char	*ft_strdup(char *str)
 	}
 	ret[i] = '\0';
 	return (ret);
+}
+
+int	ft_all_spaces(char *str)
+{
+	while (*str)
+	{
+		if (*str != ' ' && *str != '\t' && *str != '\n' && *str != '\r'
+			&& *str != '\f' && *str != '\v')
+			return (0);
+		str++;
+	}
+	return (1);
 }

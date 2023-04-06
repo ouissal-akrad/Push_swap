@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 21:41:13 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/05 02:11:42 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/05 23:50:34 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,29 @@ void	ss(t_list **stack_a, t_list **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
+}
+
+void	check_2(char **args)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (count_args(args) == 1)
+		ft_atoi(i, args);
+	while (args[i] != NULL)
+	{
+		j = i + 1;
+		while (args[j])
+		{
+			if (ft_atoi(i, args) == ft_atoi(j, args))
+			{
+				free_leaks(args);
+				ft_error();
+			}
+			j++;
+		}
+		i++;
+	}
 }

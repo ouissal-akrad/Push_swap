@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:45:34 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/05 02:14:11 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/06 02:43:09 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	go(t_list *stack_a)
 	j = 32;
 	if (is_sorted(stack_a))
 		exit(0);
-	if (ft_lstsize(stack_a) == 2 && stack_a->content > stack_a->next->content)
+	if ((ft_lstsize(stack_a) == 2)
+		&& (stack_a->content > stack_a->next->content))
 	{
 		do_sa(&stack_a);
 		free_list(&stack_a);
@@ -75,6 +76,11 @@ char	**valid(int j, char **av)
 	new_arg = ft_strdup("");
 	while (i < j)
 	{
+		if (ft_strlen(av[i]) == 0 || ft_all_spaces(av[i]))
+		{
+			free(new_arg);
+			ft_error();
+		}
 		tmp = new_arg;
 		av[i] = ft_strjoin(av[i], " ");
 		new_arg = ft_strjoin(new_arg, av[i++]);
@@ -87,33 +93,10 @@ char	**valid(int j, char **av)
 
 int	main(int ac, char *av[])
 {
-	int		i;
-	int		j;
 	char	**args;
 
 	args = valid(ac, av);
-	i = 0;
-	j = 0;
-	if (count_args(args) == 1)
-	{
-		ft_atoi(i, args);
-		free_leaks(args);
-		exit(0);
-	}
-	while (args[i] != NULL)
-	{
-		j = i + 1;
-		while (args[j])
-		{
-			if (ft_atoi(i, args) == ft_atoi(j, args))
-			{
-				free_leaks(args);
-				ft_error();
-			}
-			j++;
-		}
-		i++;
-	}
+	check(args);
 	if (stack_a(args) == NULL)
 	{
 		free_leaks(args);

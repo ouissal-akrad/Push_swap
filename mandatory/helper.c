@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 01:00:06 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/05 02:02:45 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/06 02:11:25 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,6 @@ int	is_sorted(t_list *stack_a)
 		tmp = tmp->next;
 	}
 	return (1);
-}
-
-void	print_stack(t_list *head)
-{
-	while (head != NULL)
-	{
-		printf("content : %d\n", head->content);
-		head = head->next;
-	}
 }
 
 void	find_smallest(t_list **stack_a, t_list **stack_b)
@@ -66,4 +57,33 @@ void	f_v(t_list **stack_a, int first, int second, t_list **stack_b)
 		five(stack_a, first, second, stack_b);
 	if (ft_lstsize(*stack_a) == 4)
 		four(stack_a, first, stack_b);
+}
+
+void	check(char **args)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (count_args(args) == 1)
+	{
+		ft_atoi(i, args);
+		free_leaks(args);
+		exit(0);
+	}
+	while (args[i] != NULL)
+	{
+		j = i + 1;
+		while (args[j])
+		{
+			if (ft_atoi(i, args) == ft_atoi(j, args))
+			{
+				free_leaks(args);
+				ft_error();
+			}
+			j++;
+		}
+		i++;
+	}
 }
