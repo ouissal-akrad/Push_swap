@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 23:57:58 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/06 02:44:19 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/06 23:42:14 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ char	**valid(int j, char **av)
 		}
 		tmp = new_arg;
 		av[i] = ft_strjoin(av[i], " ");
-		new_arg = ft_strjoin(new_arg, av[i++]);
+		new_arg = ft_strjoin(new_arg, av[i]);
+		free(av[i++]);
 		free(tmp);
 	}
 	args = ft_split(new_arg, ' ');
