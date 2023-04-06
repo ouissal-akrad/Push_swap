@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:16:45 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/06 02:11:30 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/06 22:19:24 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,6 @@ void	swap(t_list **head);
 void	rotate(t_list **head);
 void	rev_rotate(t_list **head);
 void	push(t_list **src, t_list **dest);
-void	rr(t_list **stack_a, t_list **stack_b);
-void	rrr(t_list **stack_a, t_list **stack_b);
-void	ss(t_list **stack_a, t_list **stack_b);
 /*-----------dump----------*/
 void	three(t_list **head);
 void	find_smallest(t_list **stack_a, t_list **stack_b);
