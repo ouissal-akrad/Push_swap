@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:27:16 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/04/06 03:17:50 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/04/07 03:18:36 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,13 @@ void	three(t_list **head)
 	if (is_sorted(*head))
 		return ;
 	if (a > b && b < c && c > a)
-		do_sa(head);
+		return (do_sa(head), free_list(head));
 	else if (a > b && b < c && c < a)
-		do_ra(head);
+		return (do_ra(head), free_list(head));
 	else if (a > b && b > c)
-	{
-		do_sa(head);
-		do_rra(head);
-	}
+		return (do_sa(head), do_rra(head), free_list(head));
 	else if (a < b && b > a && c < a)
-		do_rra(head);
+		return (do_rra(head), free_list(head));
 	else
 		return (do_sa(head), do_ra(head), free_list(head));
 }
