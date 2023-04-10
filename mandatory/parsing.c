@@ -88,8 +88,7 @@ char	**valid(int j, char **av)
 		free(tmp);
 	}
 	args = ft_split(new_arg, ' ');
-	free(new_arg);
-	return (args);
+	return (free(new_arg), args);
 }
 
 int	main(int ac, char *av[])
@@ -105,3 +104,4 @@ int	main(int ac, char *av[])
 	}
 	return (0);
 }
+
